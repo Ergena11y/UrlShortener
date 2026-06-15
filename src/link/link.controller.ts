@@ -1,10 +1,15 @@
-import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res, Param } from '@nestjs/common';
 import { LinkService } from './link.service';
 import { CreateShortUrlDto } from './dto/CreateShortUrl.dto';
 
 @Controller('link')
 export class LinkController {
   constructor(private readonly linkService: LinkService) {}
+
+  @Get()
+  getAll(){
+    return this.linkService.getAll();
+  }
 
   @Post('links')
   create(@Body() dto: CreateShortUrlDto) {
