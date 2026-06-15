@@ -15,7 +15,7 @@ export class LinkEntity {
   @Column()
   originalUrl: string;
   @Column({ default: 0 })
-  cliks: number;
+  clicks: number;
   @CreateDateColumn()
   createdAt: Date;
 }
