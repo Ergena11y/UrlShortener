@@ -10,7 +10,7 @@ import { getTypeOrmConfig } from 'config/typeorm.config';
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigService],
+      imports: [ConfigModule],
       useFactory: getTypeOrmConfig,
       inject: [ConfigService],
     }),
