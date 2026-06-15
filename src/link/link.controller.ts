@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res, Param } from '@nestjs/common';
 import { LinkService } from './link.service';
 import { CreateShortUrlDto } from './dto/CreateShortUrl.dto';
 
@@ -6,8 +6,15 @@ import { CreateShortUrlDto } from './dto/CreateShortUrl.dto';
 export class LinkController {
   constructor(private readonly linkService: LinkService) {}
 
+  @Get()
+  getAll(){
+    return this.linkService.getAll();
+  }
+
   @Post('links')
-  create(@Body() dto: CreateShortUrlDto) {}
+  create(@Body() dto: CreateShortUrlDto) {
+    return this.linkService.createShortUrl(dto);
+  }
 
   @Get(':code')
   async redirect(@Param('code') code: string, @Res() res: any) {
