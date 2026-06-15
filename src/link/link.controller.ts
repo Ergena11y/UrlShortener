@@ -7,7 +7,9 @@ export class LinkController {
   constructor(private readonly linkService: LinkService) {}
 
   @Post('links')
-  create(@Body() dto: CreateShortUrlDto) {}
+  create(@Body() dto: CreateShortUrlDto) {
+    return this.linkService.createShortUrl(dto);
+  }
 
   @Get(':code')
   async redirect(@Param('code') code: string, @Res() res: any) {
