@@ -16,7 +16,8 @@ REST API сервис для сокращения ссылок, построен
 ### 1. Клонировать репозиторий 
  откройте командную строку и введите :
  ```
-  git clone cd url-shortener
+  git clone <https://github.com/Ergena11y/UrlShortener.git>
+  cd url-shortener
  ```
 ### 2. Установить зависимости 
 ```
@@ -35,7 +36,7 @@ REST API сервис для сокращения ссылок, построен
 ## Метод, URL, Описание: 
  1)Get /link получить все ссылки ,   
 
- 2)Get /link/:code редирект с короткой ссылки на оригинальный URL,
+ 2)Get /link/:code редирект с короткой ссылки на оригинальный URL + кол-во кликов,
 
  3)Post /link/links создать короткую ссылку
 
@@ -45,7 +46,7 @@ REST API сервис для сокращения ссылок, построен
  Content-Type: application/json
 ````
 {
- "link": "htttps.//google.com"
+ "link": "https://google.com"
  }
 ````
 
@@ -61,7 +62,7 @@ REST API сервис для сокращения ссылок, построен
 ```
 
 # Документация:
- Swagger доступен по адресу: `http://localhost:3000/docs'
+ Swagger доступен по адресу: `http://localhost:3000/docs`
  
 ## Как запустить тесты :
 
@@ -95,7 +96,8 @@ A REST API service for shortening links, built on NestJs + PostgreSQL.
 ### 1. Clone the repository
 Open a command prompt and enter:
 ```
-git clone cd url-shortener
+git clone <https://github.com/Ergena11y/UrlShortener.git>
+cd url-shortener
 ```
 ### 2. Install dependencies
 ```
@@ -115,7 +117,7 @@ yarn start:dev
 
 1) Get /link - get all links,
 
-2) Get /link/:code - redirect from a short link to the original URL,
+2) Get /link/:code - redirect from a short link to the original URL + number of clicks,
 
 3) Post /link/links - create a short link
 
@@ -125,7 +127,7 @@ Post /link/links
 Content-Type: application/json
 ````
 {
-"link": "htttps.//google.com"
+"link": "https://google.com"
 }
 ````
 
@@ -141,7 +143,7 @@ Content-Type: application/json
 ```
 
 # Documentation:
-Swagger is available at: `http://localhost:3000/docs'
+Swagger is available at: `http://localhost:3000/docs`
 
 ## How to run tests:
 
