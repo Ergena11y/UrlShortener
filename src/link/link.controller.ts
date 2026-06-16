@@ -18,18 +18,25 @@ export class LinkController {
 
   @ApiOperation({
     summary: 'Получить список ссылок',
-    description: 'Возвращает список со всеми фильмами',
+    description: 'Возвращает список со всеми ссылками',
   })
   @ApiResponse({ status: HttpStatus.OK, description: 'Ссылки найдены' })
   @Get()
   getAll() {
     return this.linkService.getAll();
   }
+  @ApiOperation({ summary: 'Создать короткую ссылку' })
+  @ApiResponse({ status: HttpStatus.OK, description: 'Ссылка создана' })
   @Post('links')
   create(@Body() dto: CreateShortUrlDto) {
     return this.linkService.createShortUrl(dto);
   }
 
+  @ApiOperation({ summary: 'Редирект по короткому коду' })
+  @ApiResponse({ status: HttpStatus.FOUND, description: 'Редирект' })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND, description: 'Ссылка не найдена',
+  })
   @Get(':code')
   async redirect(@Param('code') code: string, @Res() res: any) {
     const url = await this.linkService.getOriginalUrl(code);
